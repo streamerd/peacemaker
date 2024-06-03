@@ -355,7 +355,6 @@ a {
   color: black; /* Arrow color */
 }
 
-
 .peace-container h3 {
   padding-bottom: 40px;
   padding-top: 20px;
@@ -368,12 +367,34 @@ left: 20px;
 cursor: pointer;
 text-decoration: none;
 color: white;
-font-size: 2rem;
+font-size: 1.4rem;
 background-color: black;
-padding: 1rem;
+padding: 1.2rem;
+border-radius: 100px;
 }
 
-.back-arrow:hover {
-  background-color: yelow;
+
+
+.footer-container {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f0f0f0 ;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  background-color: black;
+  color: white;
 }
 
+.footer-link {
+  text-decoration: none;
+  cursor: pointer;
+  color: red;
+}
+.footer-last-text {
+  padding-top: 8px;
+}
+
+.start-span {
+  
+}

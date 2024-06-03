@@ -26,7 +26,6 @@ const PeacePage: React.FC<{ images: ImageData[] }> = ({ images }) => {
 
   useEffect(() => {
     const userWallet = localStorage.getItem("user");
-    console.log("userWallet >>", userWallet);
     setWallet(userWallet);
 
     fetch("/api/peace/list-images")
@@ -52,7 +51,6 @@ const PeacePage: React.FC<{ images: ImageData[] }> = ({ images }) => {
   };
 
   const sendPostRequest = async () => {
-    console.log("@sendPostReq");
     if (selectedImageIndex === null) {
       alert("please choose a template to submit!");
       return;
@@ -61,7 +59,6 @@ const PeacePage: React.FC<{ images: ImageData[] }> = ({ images }) => {
     const languageCode = loadedImages[selectedImageIndex].filename
       .split("_")[1]
       .split(".")[0];
-    console.log("languageCode", languageCode);
     const updatedPeacemaker = {
       ...peacemakers[0],
       language: languageCode.toUpperCase(),

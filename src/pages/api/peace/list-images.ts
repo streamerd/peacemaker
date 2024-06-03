@@ -11,7 +11,5 @@ export default function handler(req: any, res: any) {
     url: `/templates/peace/${file}`
   }));
 
-  console.log("peace images", images); // This will log to the server console, not the browser console
-
   res.status(200).json({ images });
 }
