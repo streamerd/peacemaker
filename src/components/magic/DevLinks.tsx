@@ -1,24 +1,28 @@
 import classNames from 'classnames';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const DevLinks = ({ primary = false, footer = false }: { primary?: boolean; footer?: boolean }) => (
-  <div className={`links ${footer ? 'footer-links' : ''}`}>
-    <div className={`link ${primary ? 'text-[#6851ff]' : 'text-[#fff]'}`}>
-      <a href="https://aworldpeace.org" target="_blank" rel="noreferrer">
-        Learn how
-      </a>
+  <div className={`links ${footer? 'footer-links' : ''}`}>
+    <div className={`link ${primary? 'text-[#6851ff]' : 'text-[#fff]'}`}>
+      {/* Updated to use Next.js Link component */}
+      <Link href="https://aworldpeace.org" target='_blank'>
+       Learn how
+      </Link>
     </div>
-    <div className={`link-divider ${primary ? 'bg-[#DDDBE0]' : 'bg-[#a270d3]'}`} />
-    <div className={`link ${primary ? 'text-[#6851ff]' : 'text-[#fff]'}`}>
-      <a href="https://aworldpeace.org" target="_blank" rel="noreferrer">
+    <div className={`link-divider ${primary? 'bg-[#DDDBE0]' : 'bg-[#a270d3]'}`} />
+    <div className={`link ${primary? 'text-[#6851ff]' : 'text-[#fff]'}`}>
+      {/* Updated to use Next.js Link component */}
+      <Link href="/peace">
         Proof of Peacemaking
-      </a>
+      </Link>
     </div>
-    <div className={`link-divider ${primary ? 'bg-[#DDDBE0]' : 'bg-[#a270d3]'}`} />
-    <div className={`link ${primary ? 'text-[#6851ff]' : 'text-[#fff]'}`}>
-      <a href="https://aworldpeace.org" target="_blank" rel="noreferrer">
-        Proof of Recognition
-      </a>
+    <div className={`link-divider ${primary? 'bg-[#DDDBE0]' : 'bg-[#a270d3]'}`} />
+    <div className={`link ${primary? 'text-[#6851ff]' : 'text-[#fff]'}`}>
+      {/* Updated to use Next.js Link component */}
+      <Link href="/recognition">
+      Proof of Recognition
+      </Link>
     </div>
   </div>
 );
