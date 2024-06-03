@@ -46,11 +46,11 @@ const SendTransaction = () => {
     };
     web3.eth
       .sendTransaction(txnParams as any)
-      .on('transactionHash', (txHash) => {
+      .on('transactionHash', (txHash: any) => {
         setHash(txHash);
         console.log('Transaction hash:', txHash);
       })
-      .then((receipt) => {
+      .then((receipt: any) => {
         showToast({
           message: 'Transaction Successful',
           type: 'success',
@@ -59,7 +59,7 @@ const SendTransaction = () => {
         setAmount('');
         console.log('Transaction receipt:', receipt);
       })
-      .catch((error) => {
+      .catch((error: any) => {
         console.error(error);
         setDisabled(false);
       });
