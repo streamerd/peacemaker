@@ -391,13 +391,15 @@ border-radius: 100px;
   cursor: pointer;
   color: red;
 }
+
 .footer-last-text {
   padding-top: 8px;
 }
 
-/* .start-span {
-
-} */
+.gh-link {
+  text-decoration: none;
+  cursor: pointer;
+}
 
 .action-card {
   width: 18rem;
