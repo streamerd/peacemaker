@@ -16,12 +16,13 @@ const TemplateGallery: React.FC<TemplateGalleryProps> = ({
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
     null
   );
+  const [hoveredImageIndex, setHoveredImageIndex] = useState<number | null>(null);
 
   useEffect(() => {
     fetch("/api/peace/list-images")
-      .then((response) => response.json())
-      .then((data) => setLoadedImages(data.images))
-      .catch((error) => console.error("Error:", error));
+     .then((response) => response.json())
+     .then((data) => setLoadedImages(data.images))
+     .catch((error) => console.error("Error:", error));
   }, []); // Empty dependency array means this effect runs once after initial render
 
   return (
@@ -29,16 +30,23 @@ const TemplateGallery: React.FC<TemplateGalleryProps> = ({
       {loadedImages.map((image, index) => (
         <div
           key={index}
-          style={{
-            width: "200px",
-            height: "auto",
-            border: selectedImageIndex === index ? "2px solid #000" : "none", // Conditionally apply border
-          }}
+          onMouseEnter={() => setHoveredImageIndex(index)}
+          onMouseLeave={() => setHoveredImageIndex(null)}
           onClick={() => {
             onImageClick?.(index);
             selectedImageIndex === index
-              ? setSelectedImageIndex(null)
+             ? setSelectedImageIndex(null)
               : setSelectedImageIndex(index);
+          }}
+          style={{
+            width: "200px",
+            height: "auto",
+            border: selectedImageIndex === index? "2px solid #000" : "none", // Conditionally apply border
+            transition: "transform 0.3s ease-in-out", // Smooth transition for scaling
+            transformOrigin: "center", // Ensure scaling starts from the center
+           ...(hoveredImageIndex === index && {
+              transform: "scale(3)", // Triple size on hover
+            }),
           }}
         >
           <Image
