@@ -430,6 +430,11 @@ border-radius: 100px;
   gap: 40px;
 }
 
+.custom-tooltip .tooltip-inner {
+  padding: 20px 25px; /* Adjust padding as needed */
+  font-size: 1rem;  /* Adjust font size as needed */
+}
+
 
 @media (max-width: 768px) {
  .action-card {
