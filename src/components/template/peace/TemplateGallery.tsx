@@ -1,6 +1,7 @@
 // components/TemplateGallery.tsx
 import React, { useEffect, useState } from 'react';
 import { ImageData } from '../types';
+import Image from 'next/image';
 
 interface TemplateGalleryProps {
   images?: ImageData[];
@@ -33,10 +34,11 @@ const TemplateGallery: React.FC<TemplateGalleryProps> = ({ images, onImageClick 
             setSelectedImageIndex(index)
           }}
         >
-          <img 
+        <Image 
             src={image.url} 
             alt={`Template ${index + 1}`} 
-            style={{ width: '100%', objectFit: 'cover' }} 
+            width={200} // Specify the width
+            height={150} // Specify the height
           />
         </div>
       ))}
