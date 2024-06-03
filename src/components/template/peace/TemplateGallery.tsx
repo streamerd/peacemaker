@@ -42,7 +42,7 @@ const TemplateGallery: React.FC<TemplateGalleryProps> = ({
             width: "200px",
             height: "auto",
             border: selectedImageIndex === index? "2px solid #000" : "none", // Conditionally apply border
-            transition: "transform 0.3s ease-in-out", // Smooth transition for scaling
+            transition: "transform 0.5s ease-in-out", // Smooth transition for scaling
             transformOrigin: "center", // Ensure scaling starts from the center
            ...(hoveredImageIndex === index && {
               transform: "scale(3)", // Triple size on hover
