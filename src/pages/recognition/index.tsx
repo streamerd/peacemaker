@@ -1,8 +1,8 @@
 // pages/recognition/[...slug].tsx
 import React from "react";
-import TemplateGallery, {
-  ImageData,
-} from "@/components/template/recognition/TemplateGallery";
+import TemplateGallery
+ from "@/components/template/recognition/TemplateGallery";
+import { ImageData } from "@/components/template/types";
 
 const RecognitionPage: React.FC<{ images: ImageData[] }> = ({ images }) => {
   return (
