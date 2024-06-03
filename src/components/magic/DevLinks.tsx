@@ -1,29 +1,48 @@
-import classNames from 'classnames';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+import classNames from "classnames";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { Card, Button } from "react-bootstrap"; // Import Card and Button components
 
-const DevLinks = ({ primary = false, footer = false }: { primary?: boolean; footer?: boolean }) => (
-  <div className={`links ${footer? 'footer-links' : ''}`}>
-    <div className={`link ${primary? 'text-[#6851ff]' : 'text-[#fff]'}`}>
-      {/* Updated to use Next.js Link component */}
-      <Link href="https://aworldpeace.org" target='_blank'>
-       Learn how
-      </Link>
-    </div>
-    <div className={`link-divider ${primary? 'bg-[#DDDBE0]' : 'bg-[#a270d3]'}`} />
-    <div className={`link ${primary? 'text-[#6851ff]' : 'text-[#fff]'}`}>
-      {/* Updated to use Next.js Link component */}
-      <Link href="/peace">
-        Proof of Peacemaking
-      </Link>
-    </div>
-    <div className={`link-divider ${primary? 'bg-[#DDDBE0]' : 'bg-[#a270d3]'}`} />
-    <div className={`link ${primary? 'text-[#6851ff]' : 'text-[#fff]'}`}>
-      {/* Updated to use Next.js Link component */}
-      <Link href="/recognition">
-      Proof of Recognition
-      </Link>
-    </div>
+const DevLinks = ({
+  primary = false,
+  footer = false,
+}: {
+  primary?: boolean;
+  footer?: boolean;
+}) => (
+  // <div className={`links ${footer? "footer-links" : ""} d-flex flex-wrap justify-content-center`}>
+  <div className={`action-links ${footer? "footer-links" : ""} d-flex flex-wrap flex-column flex-sm-row justify-content-center`}>
+    <Link
+      href="https://aworldpeace.org"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="action-link"
+    >
+      <Card className="action-card">
+        <Card.Body>
+          <Card.Title>Learn How</Card.Title>
+          {/* <Card.Text>PEACE</Card.Text> */}
+        </Card.Body>
+      </Card>
+    </Link>
+    <Link href="/peace" className="action-link">
+      <Card className="action-card" >
+        <Card.Body>
+          <Card.Title>Proof of Peacemaking</Card.Title>
+          {/* <Card.Text>
+             PEACE
+          </Card.Text> */}
+        </Card.Body>
+      </Card>
+    </Link>
+    <Link href="/recognition" className="action-link">
+      <Card className="action-card">
+        <Card.Body>
+          <Card.Title>Proof of Recognition</Card.Title>
+          <Card.Text></Card.Text>
+        </Card.Body>
+      </Card>
+    </Link>
   </div>
 );
 

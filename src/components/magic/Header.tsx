@@ -9,9 +9,9 @@ const Header = ({ token, setToken }: LoginProps) => {
     <div className="app-header-container flex justify-between items-center p-4 bg-gray-900">
       <div className="flex items-center gap-2.5">
         <Image src={Logo} alt="logo" className="w-20" />
-        <div className="pl-2 text-center text-white text-base font-bolder font-sf-mono leading-normal">
-          Start a World Peace
-        </div>
+   
+
+
       <div className="flex items-center gap-2.5 ml-auto">
         <UserInfo token={token} setToken={setToken} />
       </div>

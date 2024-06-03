@@ -395,6 +395,42 @@ border-radius: 100px;
   padding-top: 8px;
 }
 
-.start-span {
-  
+/* .start-span {
+
+} */
+
+.action-card {
+  width: 18rem;
+  margin: auto;
+}
+
+.action-link {
+  text-decoration: none;
+ 
+}
+
+
+ .action-card {
+  max-width: 18rem;
+  margin: auto;
+  text-align: center;
+  cursor: pointer;
+
+}
+
+.action-card:hover{
+  background-color: black;
+  color: white;
+}
+
+.action-links {
+  margin-top: 120px; 
+  gap: 40px;
+}
+
+
+@media (max-width: 768px) {
+ .action-card {
+    width: 100%;
+  }
 }
