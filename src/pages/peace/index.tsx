@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import TemplateGallery from "@/components/template/peace/TemplateGallery";
 import axios from "axios";
 import { ImageData } from "@/components/template/types";
-import showToast from "@/utils/showToast";
 import Link from "next/link";
 
 const PeacePage: React.FC<{ images: ImageData[] }> = ({ images }) => {
@@ -65,7 +64,7 @@ const PeacePage: React.FC<{ images: ImageData[] }> = ({ images }) => {
     };
 
     try {
-      await axios.post("http://localhost:3030/peace", {
+      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/peace`, {
         peacemakers: [updatedPeacemaker, peacemakers[1]],
       });
       alert("Update successful!");
