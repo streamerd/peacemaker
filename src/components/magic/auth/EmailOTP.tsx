@@ -23,7 +23,6 @@ const EmailOTP = ({ token, setToken }: LoginProps) => {
         setLoginInProgress(true);
         setEmailError(false);
         const token = await magic?.auth.loginWithEmailOTP({ email });
-
         const metadata = await magic?.user.getMetadata();
 
         if (!token || !metadata?.publicAddress) {

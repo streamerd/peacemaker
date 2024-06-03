@@ -328,3 +328,52 @@ a {
 .api-button {
   @apply bg-[#6844bc] text-[#FFFFFF] flex w-[280px] justify-center items-center h-12 font-semibold text-base leading-6 transition-[0.1s] px-6 py-3 rounded-[300px] border-[none];
 }
+
+.peace-container {
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center elements horizontally */
+  position: relative; /* Position relative for the back arrow positioning */
+}
+
+.peace-container .submit-btn {
+  margin-top: 40px; /* 40px distance from images */
+  border: 2px solid black; /* Solid 2px black border */
+  padding: 10px 20px; /* Optional: add padding for better appearance */
+  cursor: pointer; /* Optional: change cursor to pointer on hover */
+  background-color: white; /* Optional: set background color */
+  text-align: center; /* Center text inside the button */
+}
+
+.back-arrow {
+  position: absolute;
+  top: 10px; /* Adjust as needed */
+  left: 10px; /* Adjust as needed */
+  font-size: 24px; /* Adjust as needed */
+  text-decoration: none; /* Remove underline */
+  color: black; /* Arrow color */
+}
+
+
+.peace-container h3 {
+  padding-bottom: 40px;
+  padding-top: 20px;
+}
+
+.back-arrow {
+position: absolute;
+top: 20px;
+left: 20px;
+cursor: pointer;
+text-decoration: none;
+color: white;
+font-size: 2rem;
+background-color: black;
+padding: 1rem;
+}
+
+.back-arrow:hover {
+  background-color: yelow;
+}
+
