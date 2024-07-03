@@ -69,22 +69,40 @@ const PeacePage: React.FC<{ images: ImageData[] }> = ({ images }) => {
     try {
       const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/peace`;
       console.log("API URL:", apiUrl);
-      await axios.post(
-        apiUrl,
-        {
-          peacemakers: [updatedPeacemaker, peacemakers[1]],
-        },
-        {
-          headers: {
-            "Content-Type": "application/json", // Ensure the Content-Type is correctly set
-            Accept: "application/json", // Specify that the response should be JSON
+      await axios
+        .post(
+          apiUrl,
+          {
+            peacemakers: [updatedPeacemaker, peacemakers[1]],
+
           },
-          withCredentials: true,
-        }
-      );
+          {
+            headers: {
+              "Content-Type": "application/json", // Ensure the Content-Type is correctly set
+              Accept: "application/json", // Specify that the response should be JSON
+            },
+          }
+        )
+        .then((response) => {
+          console.log("Response:", response);
+          console.log("Status:", response.status);
+          console.log("Response:", response.data);
+        });
       alert("Update successful!");
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error sending POST request:", error);
+      console.error(
+        "Error details:",
+        error.response ? error.response.data : error.message
+      );
+      console.error(
+        "Status code:",
+        error.response ? error.response.status : "No response"
+      );
+      console.error(
+        "Headers:",
+        error.response ? error.response.headers : "No headers"
+      );
       alert("Failed to update.");
     }
   };
