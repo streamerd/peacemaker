@@ -3,10 +3,13 @@ import TemplateGallery from "@/components/template/peace/TemplateGallery";
 import axios from "axios";
 import { ImageData } from "@/components/template/types";
 import Link from "next/link";
+import { headers } from "next/dist/client/components/headers";
 
 const PeacePage: React.FC<{ images: ImageData[] }> = ({ images }) => {
   const [loadedImages, setLoadedImages] = useState<ImageData[]>(images || []);
-  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
+    null
+  );
   const [wallet, setWallet] = useState<string | null>(null);
   const [peacemakers, setPeacemakers] = useState([
     {
@@ -64,9 +67,21 @@ const PeacePage: React.FC<{ images: ImageData[] }> = ({ images }) => {
     };
 
     try {
-      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/peace`, {
-        peacemakers: [updatedPeacemaker, peacemakers[1]],
-      });
+      const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/peace`;
+      console.log("API URL:", apiUrl);
+      await axios.post(
+        apiUrl,
+        {
+          peacemakers: [updatedPeacemaker, peacemakers[1]],
+        },
+        {
+          headers: {
+            "Content-Type": "application/json", // Ensure the Content-Type is correctly set
+            Accept: "application/json", // Specify that the response should be JSON
+          },
+          withCredentials: true,
+        }
+      );
       alert("Update successful!");
     } catch (error) {
       console.error("Error sending POST request:", error);
@@ -76,7 +91,7 @@ const PeacePage: React.FC<{ images: ImageData[] }> = ({ images }) => {
 
   return (
     <div className="peace-container">
-        <Link className="back-arrow" href="/">
+      <Link className="back-arrow" href="/">
         {"<|"}
       </Link>
       <h3>Proof of Peacemaking</h3>
